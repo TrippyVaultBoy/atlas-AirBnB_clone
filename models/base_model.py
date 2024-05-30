@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import uuid
-from datetime import date, datetime
+from datetime import datetime
 
 class BaseModel:
     def __init__(self, id, created_at, updated_at):
