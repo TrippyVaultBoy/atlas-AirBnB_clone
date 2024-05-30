@@ -9,7 +9,7 @@ class BaseModel:
         self.updated_at = datetime.datetime.now()
 
     def __str__(self):
-        print("[{:s}] ({:s}) {:s}".format(self.__class__.__name__, self.id, self.__dict__))
+        print("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
 
     def save(self):
         """updates the public instance attribute
