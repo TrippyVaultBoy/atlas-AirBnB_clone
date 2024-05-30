@@ -8,6 +8,9 @@ class BaseModel:
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
 
+    def __str__(self):
+        print("[{:s}] ({:s}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+
     def save(self):
         """updates the public instance attribute
         updated_at with the current datetime"""
