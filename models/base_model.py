@@ -9,13 +9,13 @@ class BaseModel:
         self.updated_at = datetime.datetime.now()
         
         if kwargs is not None:
-            for key in kwargs:
+            for key, value in kwargs.items():
                 if key == "id":
-                    self.id = kwargs[key]
+                    setattr(self, key, value)
                 elif key == "created_at":
-                    self.created_at = datetime.strptime(kwargs[key], '%Y-%m-%dT%H:%M:%S.%f')
+                    value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                 elif key == "updated_at":
-                    self.updated_at = datetime.strptime(kwargs[key], '%Y-%m-%dT%H:%M:%S.%f')
+                    value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
 
     def __str__(self):
         return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
