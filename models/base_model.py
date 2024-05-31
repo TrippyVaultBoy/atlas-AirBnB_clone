@@ -16,6 +16,10 @@ class BaseModel:
                     setattr(self, key, datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
 
     def __str__(self):
+        """
+        Returns string representation of
+        the current instance of the BaseModel class
+        """
         return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
 
     def save(self):
