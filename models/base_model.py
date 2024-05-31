@@ -3,7 +3,7 @@ import uuid
 import datetime
 
 class BaseModel:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, id=None, created_at=None, updated_at=None, *args, **kwargs):
         if kwargs is not None:
             for key in kwargs:
                 if key == "id":
