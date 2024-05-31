@@ -20,4 +20,6 @@ class BaseModel:
         """returns a dictionary containing all
         keys/values of __dict__ of the instance:"""
         self.__dict__[__class__] = self.__class__.__name__
+        self.__dict__[created_at] = self.created_at.isoformat()
+        self.__dict__[updated_at] = self.updated_at.isoformat()
         return self.__dict__
