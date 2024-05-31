@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 
-import engine.file_storage
+from .file_storage import FileStorage
 
 storage = FileStorage()
