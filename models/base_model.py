@@ -13,9 +13,9 @@ class BaseModel:
                 if key == "id":
                     self.id = kwargs[key]
                 elif key == "created_at":
-                    self.created_at = kwargs[key]
+                    self.created_at = datetime.strptime(kwargs[key], '%Y-%m-%d %H:%M:%S')
                 elif key == "updated_at":
-                    self.updated_at = kwargs[key]
+                    self.updated_at = datetime.strptime(kwargs[key], '%Y-%m-%d %H:%M:%S')
 
     def __str__(self):
         return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
