@@ -19,4 +19,4 @@ class BaseModel:
     def to_dict(self):
         """returns a dictionary containing all
         keys/values of __dict__ of the instance:"""
-        pass
+        return self.__dict__
