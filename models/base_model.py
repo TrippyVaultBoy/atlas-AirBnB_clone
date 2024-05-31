@@ -15,7 +15,7 @@ class BaseModel:
                 elif key == "created_at":
                     value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                 elif key == "updated_at":
-                    value = datetime.strptime(value, '%Y-%m-%d %H:%M:%S')
+                    value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
 
     def __str__(self):
         return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
