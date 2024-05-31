@@ -5,14 +5,14 @@ import datetime
 class BaseModel:
     def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
+        self.created_at = datetime.datetime.utcnow()
+        self.updated_at = datetime.datetime.utcnow()
         
         if kwargs is not None:
             for key, value in kwargs.items():
                 if key != "__class__":
                     setattr(self, key, value)
-                elif key == "created_at" or key == "updated_at":
+                if key == "created_at" or key == "updated_at":
                     setattr(self, key, datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
 
     def __str__(self):
@@ -26,8 +26,8 @@ class BaseModel:
     def to_dict(self):
         """returns a dictionary containing all
         keys/values of __dict__ of the instance:"""
-        my_dict = self.__dict__.copy()
-        my_dict["__class__"] = self.__class__.__name__
-        my_dict["created_at"] = self.created_at.isoformat()
-        my_dict["updated_at"] = self.updated_at.isoformat()
-        return my_dict
+        dict_obj = self.__dict__.copy()
+        dict_obj["__class__"] = self.__class__.__name__
+        dict_obj["created_at"] = self.created_at.isoformat()
+        dict_obj["updated_at"] = self.updated_at.isoformat()
+        return dict_obj
