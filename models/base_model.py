@@ -5,9 +5,13 @@ import datetime
 class BaseModel:
     def __init__(self, *args, **kwargs):
         if kwargs is not None:
-            self.id = kwargs[id]
-            self.created_at = kwargs[updated_at]
-            self.updated_at = kwargs[updated_at]
+            for key in kwargs:
+                if key == "id":
+                    self.id = kwargs[key]
+                elif key == "created_at":
+                    self.created_at = kwargs[key]
+                elif key == "updated_at":
+                    self.updated_at = kwargs[key]
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.now()
