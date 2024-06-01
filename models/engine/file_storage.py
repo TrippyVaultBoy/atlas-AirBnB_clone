@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import json
+import os
 
 class FileStorage:
     __file_path = "file.json"
@@ -18,12 +19,19 @@ class FileStorage:
         self.__objects[key] = obj
     
     def save(self):
+        serial_objects = {}
+        for key, obj in self.__objects.items():
+            serial_objects[key] = obj.to_dict()
+
         with open(self.__file_path, 'w') as file:
             json.dump(self.__objects, file, indent=4)
     
     def reload(self):
         """
         """
-        if self.__file_path != None:
-            data = json.loads(self.__file_path)
-            self.__objects.update(data)
+        if os.path.exists(self.__file_path):
+            with open(self.__file_path, 'r') as file:
+                for obj in json.load(file).values():
+                    class_name = obj["__class__"]
+                    del obj["__class__"]
+                    self.new(eval(class_name)(**obj))
