@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 import uuid
-import datetime
+from datetime import datetime
 import models
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
+        self.created_at = self.updated_at = datetime.now()
         
         if kwargs is not None:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
-                    setattr(self, key, datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
+                    setattr(self, key, datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
                 if key != "__class__":
                     setattr(self, key, value)
 
@@ -26,7 +25,7 @@ class BaseModel:
     def save(self):
         """updates the public instance attribute
         updated_at with the current datetime"""
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.now()
         models.storage.new(self)
         models.storage.save()
 
