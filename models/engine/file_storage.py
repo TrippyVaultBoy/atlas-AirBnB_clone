@@ -1,13 +1,16 @@
 #!/usr/bin/python3
-
 import json
 import os
+
 
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
+        """
+        returns the dictionary __objects
+        """
         return self.__objects
     
     def new(self, obj):
@@ -19,6 +22,9 @@ class FileStorage:
         self.__objects[key] = obj
     
     def save(self):
+        """
+        serializes __objects to the JSON file (path: __file_path)
+        """
         serial_objects = {}
         for key, obj in self.__objects.items():
             serial_objects[key] = obj.to_dict()
@@ -28,6 +34,8 @@ class FileStorage:
     
     def reload(self):
         """
+        deserializes the JSON file to __objects
+        (only if the JSON file (__file_path) exists ; otherwise, do nothing.
         """
         if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r') as file:
