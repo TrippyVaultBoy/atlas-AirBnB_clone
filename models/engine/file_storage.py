@@ -30,7 +30,7 @@ class FileStorage:
             serial_objects[key] = obj.to_dict()
 
         with open(self.__file_path, 'w') as file:
-            json.dump(self.__objects, file, indent=4)
+            json.dump(serial_objects, file, indent=4)
     
     def reload(self):
         """
