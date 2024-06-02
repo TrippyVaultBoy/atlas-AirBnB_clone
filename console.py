@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Includes HBNBCommand class
+"""
 import cmd
 
 
