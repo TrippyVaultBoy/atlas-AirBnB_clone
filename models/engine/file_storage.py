@@ -30,7 +30,7 @@ class FileStorage:
         for key, obj in self.__objects.items():
             serial_objects[key] = obj.to_dict()
 
-        with open(self.__file_path, 'w') as file:
+        with open(self.__file_path, 'w', encoding="utf-8") as file:
             json.dump(serial_objects, file, indent=4)
     
     def reload(self):
@@ -39,7 +39,7 @@ class FileStorage:
         (only if the JSON file (__file_path) exists ; otherwise, do nothing.
         """
         if os.path.exists(self.__file_path):
-            with open(self.__file_path, 'r') as file:
+            with open(self.__file_path, 'r', encoding="utf-8") as file:
                 for obj in json.load(file).values():
                     class_name = obj["__class__"]
                     del obj["__class__"]
