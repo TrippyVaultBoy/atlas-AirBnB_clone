@@ -40,7 +40,7 @@ class FileStorage:
         """
         if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r', encoding="utf-8") as file:
-                for obj in json.load(file).values():
-                    class_name = obj["__class__"]
-                    del obj["__class__"]
-                    self.new(eval(class_name)(**obj))
+                loaded_objs = json.load(file)
+                for obj_data in loaded_objs.values():
+                    class_name = obj_data.pop("__class__")
+                    self.new(eval(class_name)(**obj_data))
