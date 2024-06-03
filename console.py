@@ -47,10 +47,11 @@ class HBNBCommand(cmd.Cmd):
         Exits the program
         """
         return True
-    
+
     def do_create(self, arg):
         """
-        Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id
+        Creates a new instance of BaseModel, saves
+        it (to the JSON file) and prints the id
         """
         if not arg:
             print("** class name missing **")
@@ -66,20 +67,21 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, args):
         """
-        Prints the string representation of an instance based on the class name and id
+        Prints the string representation of an
+        instance based on the class name and id
         """
         show_args = shlex.split(args)
 
         if len(show_args) == 0:
             print("** class name missing **")
             return False
-        
+
         class_name = show_args[0]
 
         if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return False
-        
+
         if len(show_args) < 2:
             print("** instance id missing **")
             return False
@@ -102,13 +104,13 @@ class HBNBCommand(cmd.Cmd):
         if len(destroy_args) == 0:
             print("** class name missing **")
             return False
-        
+
         class_name = destroy_args[0]
 
         if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return False
-        
+
         if len(destroy_args) < 2:
             print("** instance id missing **")
             return False
@@ -122,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** no instance found **")
             return False
-        
+
     def do_all(self, arg):
         """
         Prints all string representations of all
@@ -149,7 +151,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, args):
         """
-        Updates an instance based on the class name and id by adding or updating attribute
+        Updates an instance based on the class
+        name and id by adding or updating attribute
         """
         update_args = shlex.split(args)
 
@@ -162,7 +165,7 @@ class HBNBCommand(cmd.Cmd):
         if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return False
-        
+
         if len(update_args) < 2:
             print("** instance id missing **")
             return False
@@ -175,7 +178,7 @@ class HBNBCommand(cmd.Cmd):
         if key not in all_instances:
             print("** no instance found **")
             return False
-        
+
         if len(update_args) < 3:
             print("** attribute name missing **")
             return False
@@ -201,6 +204,7 @@ class HBNBCommand(cmd.Cmd):
 
         instance.save()
 
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-    
+
