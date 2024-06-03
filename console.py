@@ -34,11 +34,14 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         if arg is None:
             print("** class name missing **")
+            return
         elif arg not in HBNBCommand.classes:
             print("** class doesn't exist **")
+            return
         else:
-            new_instance = HBNBCommand.classes[arg]
+            new_instance = HBNBCommand.classes[arg]()
             print(new_instance.id)
+            return
 
     def do_show(self, arg):
         pass
