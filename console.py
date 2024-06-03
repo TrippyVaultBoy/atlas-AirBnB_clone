@@ -49,43 +49,53 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, args):
         show_args = args.split(' ')
 
-        if len(show_args) == 0:
+        if len(show_args) < 1:
             print("** class name missing **")
-
-        if show_args[0] in HBNBCommand.classes:
-            if show_args[1]:
-                class_name = show_args[0]
-                instance_id = show_args[1]
-                key = class_name + "." + instance_id
-                if key in models.storage.all():
-                    print(models.storage.all()[key])
-                else:
-                    print("** no instance found **")
-            else:
-                print("** instance id missing **")
         else:
-            print("** class doesn't exist **") 
+            class_name = show_args[0]
+
+        if class_name not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+            return False
+        
+        if len(show_args) < 2:
+            print("** instance id missing **")
+            return False
+        else:
+            instance_id = show_args[1]
+
+        key = class_name + "." + instance_id
+        if key in models.storage.all():
+            print(models.storage.all()[key])
+        else:
+            print("** no instance found **")
+            return False
 
     def do_destroy(self, args):
         destroy_args = args.split(' ')
 
-        if len(destroy_args) == 0:
+        if len(destroy_args) < 1:
             print("** class name missing **")
-
-        if destroy_args[0] in HBNBCommand.classes:
-            if len(destroy_args) > 1:
-                class_name = destroy_args[0]
-                instance_id = destroy_args[1]
-                key = class_name + "." + instance_id
-                if key in models.storage.all():
-                    models.storage.all().pop(key)
-                    models.storage.save()
-                else:
-                    print("** no instance found **")
-            else:
-                print("** instance id missing **")
         else:
+            class_name = destroy_args[0]
+
+        if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
+            return False
+        
+        if len(destroy_args) < 2:
+            print("** instance id missing **")
+            return False
+        else:
+            instance_id = destroy_args[1]
+
+        key = class_name + "." + instance_id
+        if key in models.storage.all():
+            del models.storage.all()[key]
+            models.storage.save()
+        else:
+            print("** no instance found **")
+            return False
         
 
     def do_all(self, arg):
