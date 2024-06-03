@@ -48,7 +48,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, args):
         show_args = args.split(' ')
-        print(show_args)
 
         if len(show_args) == 0:
             print("** class name missing **")
@@ -69,7 +68,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, args):
         destroy_args = args.split(' ')
-        print(destroy_args)
 
         if len(destroy_args) == 0:
             print("** class name missing **")
