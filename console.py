@@ -75,7 +75,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
         if destroy_args[0] in HBNBCommand.classes:
-            if destroy_args[1]:
+            if len(destroy_args) > 1:
                 class_name = destroy_args[0]
                 instance_id = destroy_args[1]
                 key = class_name + "." + instance_id
