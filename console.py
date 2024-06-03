@@ -4,7 +4,6 @@ Includes HBNBCommand class
 """
 import cmd
 from models.base_model import BaseModel
-from models.user import User
 import models
 import shlex
 
@@ -17,7 +16,6 @@ class HBNBCommand(cmd.Cmd):
 
     classes = {
         'BaseModel': BaseModel,
-        'User': User
     }
 
     def emptyline(self):
