@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
         return True
     
     def do_create(self, arg):
-        if arg is None:
+        if not arg:
             print("** class name missing **")
             return
         elif arg not in HBNBCommand.classes:
