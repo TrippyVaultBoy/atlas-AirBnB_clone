@@ -36,13 +36,11 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
-
     def do_quit(self, arg):
         """
         Exits the program
         """
         return True
-
 
     def do_EOF(self, arg):
         """
@@ -50,7 +48,6 @@ class HBNBCommand(cmd.Cmd):
         """
         return True
     
-
     def do_create(self, arg):
         """
         Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id
@@ -66,7 +63,6 @@ class HBNBCommand(cmd.Cmd):
             new_instance.save()
             print(new_instance.id)
             return
-
 
     def do_show(self, args):
         """
@@ -96,7 +92,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** no instance found **")
             return False
-
 
     def do_destroy(self, args):
         """
@@ -128,7 +123,6 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
             return False
         
-
     def do_all(self, arg):
         """
         Prints all string representations of all
@@ -152,7 +146,6 @@ class HBNBCommand(cmd.Cmd):
             instance_strings.append(str(obj_dict[key]))
 
         print(f"[{', '.join(instance_strings)}]")
-
 
     def do_update(self, args):
         """
@@ -208,7 +201,6 @@ class HBNBCommand(cmd.Cmd):
 
         instance.save()
 
-    
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
     
