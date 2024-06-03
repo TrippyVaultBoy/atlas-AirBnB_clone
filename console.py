@@ -3,6 +3,7 @@
 Includes HBNBCommand class
 """
 import cmd
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -10,6 +11,10 @@ class HBNBCommand(cmd.Cmd):
     Entry point of the command interpreter
     """
     prompt = "(hbnb)"
+
+    classes = {
+        'BaseModel': BaseModel
+    }
 
     def emptyline(self):
         pass
@@ -25,6 +30,27 @@ class HBNBCommand(cmd.Cmd):
         Exits the program
         """
         return True
+    
+    def do_create(self, arg):
+        if arg is None:
+            print("** class name missing **")
+        elif arg not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+        else:
+            new_instance = HBNBCommand.classes[arg]
+            print(new_instance.id)
+
+    def do_show(self, arg):
+        pass
+
+    def destroy(self, arg):
+        pass
+
+    def all(self, arg):
+        pass
+
+    def update(self, arg):
+        pass
     
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
