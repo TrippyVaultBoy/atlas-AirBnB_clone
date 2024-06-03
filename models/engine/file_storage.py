@@ -9,6 +9,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
+
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
@@ -24,15 +25,15 @@ class FileStorage:
                     class_dict[key] = value
             return class_dict
         return self.__objects
-    
+
     def new(self, obj):
         """
         Creates a new key value pair in
         the __objects dictionary
         """
-        key = f"{obj.__class__.__name__}.{obj.id}" 
+        key = f"{obj.__class__.__name__}.{obj.id}"
         self.__objects[key] = obj
-    
+
     def save(self):
         """
         serializes __objects to the JSON file (path: __file_path)
@@ -43,7 +44,7 @@ class FileStorage:
 
         with open(self.__file_path, 'w', encoding="utf-8") as file:
             json.dump(serial_objects, file, indent=4)
-    
+
     def reload(self):
         """
         deserializes the JSON file to __objects
