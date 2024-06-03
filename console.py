@@ -119,11 +119,26 @@ class HBNBCommand(cmd.Cmd):
             return False
         
 
-    def do_all(self, arg):
+    def do_all(self, args):
         """
         Prints all string representation of all instances based or not on the class name.
         """
-        pass
+        all_args = shlex.split(args)
+
+        objects = []
+        if len(all_args) == 0:
+            objects = models.storage.all()
+        elif all_args[0] in HBNBCommand.classes:
+            objects = models.storage.all(HBNBCommand.classes[all_args[0]])
+        else:
+            print("** class doesn't exist **")
+            return False
+    
+        for key in objects:
+            objects.append(str(objects[key]))
+        print("[", end="")
+        print(", ".join(objects), end="")
+        print("]")
 
 
     def do_update(self, args):
