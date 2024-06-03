@@ -187,12 +187,20 @@ class HBNBCommand(cmd.Cmd):
 
         instance = all_instances[key]
 
-        attribute_type = type(getattr(instance, attribute_name))
-        casted_value = attribute_type(attribute_value)
+        if isinstance(attribute_value, int):
+            casted_value = int(attribute_value)
+        elif isinstance(attribute_value, float):
+            casted_value = float(attribute_value)
+        else:
+            casted_value = str(attribute_value)
+
+        print(instance)
+        print(attribute_name)
+        print(casted_value)
 
         setattr(instance, attribute_name, casted_value)
 
-        models.storage.save()
+        instance.save()
 
     
 if __name__ == '__main__':
