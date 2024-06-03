@@ -12,4 +12,4 @@ class State(BaseModel):
         name (str): Name of the state.
     """
 
-name = ""
+    name = ""
