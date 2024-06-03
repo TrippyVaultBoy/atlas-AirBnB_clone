@@ -4,6 +4,7 @@ Includes HBNBCommand class
 """
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 import models
 import shlex
 
@@ -16,6 +17,7 @@ class HBNBCommand(cmd.Cmd):
 
     classes = {
         'BaseModel': BaseModel,
+        'User': User
     }
 
     def emptyline(self):
@@ -126,11 +128,6 @@ class HBNBCommand(cmd.Cmd):
         """
         Updates an instance based on the class name and id by adding or updating attribute
         """
-        attributes = [
-            "id",
-            "created_at",
-            "updated_at",
-        ]
         update_args = args.split(' ')
 
         if len(update_args) < 1:
