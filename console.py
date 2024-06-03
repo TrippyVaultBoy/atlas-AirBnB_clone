@@ -5,6 +5,7 @@ Includes HBNBCommand class
 import cmd
 from models.base_model import BaseModel
 import models
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -46,7 +47,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def do_show(self, args):
-        show_args = args.split(' ')
+        show_args = shlex.split(args)
         if not show_args:
             print("** class name missing **")
         elif show_args[0] not in HBNBCommand.classes:
