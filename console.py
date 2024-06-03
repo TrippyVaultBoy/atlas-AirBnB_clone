@@ -4,6 +4,7 @@ Includes HBNBCommand class
 """
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 import models
 import shlex
 
@@ -16,6 +17,7 @@ class HBNBCommand(cmd.Cmd):
 
     classes = {
         'BaseModel': BaseModel,
+        'User': User
     }
 
     def emptyline(self):
@@ -24,11 +26,13 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
+
     def do_quit(self, arg):
         """
         Exits the program
         """
         return True
+
 
     def do_EOF(self, arg):
         """
@@ -36,6 +40,7 @@ class HBNBCommand(cmd.Cmd):
         """
         return True
     
+
     def do_create(self, arg):
         """
         Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id
@@ -51,6 +56,7 @@ class HBNBCommand(cmd.Cmd):
             new_instance.save()
             print(new_instance.id)
             return
+
 
     def do_show(self, args):
         """
@@ -79,6 +85,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** no instance found **")
             return False
+
 
     def do_destroy(self, args):
         """
@@ -115,6 +122,7 @@ class HBNBCommand(cmd.Cmd):
         Prints all string representation of all instances based or not on the class name.
         """
         pass
+
 
     def do_update(self, arg):
         """
