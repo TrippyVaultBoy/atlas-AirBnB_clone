@@ -62,12 +62,13 @@ class HBNBCommand(cmd.Cmd):
         """
         Prints the string representation of an instance based on the class name and id
         """
-        show_args = args.split(' ')
+        show_args = shlex.split(args)
 
-        if len(show_args) < 1:
+        if len(show_args) == 0:
             print("** class name missing **")
-        else:
-            class_name = show_args[0]
+            return False
+        
+        class_name = show_args[0]
 
         if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
@@ -91,12 +92,13 @@ class HBNBCommand(cmd.Cmd):
         """
         Deletes an instance based on the class name and id
         """
-        destroy_args = args.split(' ')
+        destroy_args = shlex.split(args)
 
-        if len(destroy_args) < 1:
+        if len(destroy_args) == 0:
             print("** class name missing **")
-        else:
-            class_name = destroy_args[0]
+            return False
+        
+        class_name = destroy_args[0]
 
         if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
@@ -128,9 +130,9 @@ class HBNBCommand(cmd.Cmd):
         """
         Updates an instance based on the class name and id by adding or updating attribute
         """
-        update_args = args.split(' ')
+        update_args = shlex.split(args)
 
-        if len(update_args) < 1:
+        if len(update_args) == 0:
             print("** class name missing **")
             return False
         else:
