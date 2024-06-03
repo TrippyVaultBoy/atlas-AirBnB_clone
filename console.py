@@ -47,20 +47,26 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def do_show(self, args):
-        show_args = shlex.split(args)
-        if not show_args:
+        show_args = args.split(' ')
+        print(show_args)
+
+        if len(show_args) == 0:
             print("** class name missing **")
-        elif show_args[0] not in HBNBCommand.classes:
-            print("** class doesn't exist **")
-        elif len(show_args) < 2 or not show_args[1]:
-            print("** instance id missing **")
-        else:
-            key = args[0] + "." + args[1]
-            if key in models.storage.all():
-                print(models.storage.all()[key])
+
+        if show_args[0] in HBNBCommand.classes:
+            if show_args[1]:
+                class_name = show_args[0]
+                instance_id = show_args[1]
+                key = class_name + "." + instance_id
+                if key in models.storage.all():
+                    print(models.storage.all()[key])
+                else:
+                    print("** no instance found **")
             else:
-                print("** no instance found **")
-        return
+                print("** instance id missing **")
+        else:
+            print("** class doesn't exist **")
+        
 
     def destroy(self, arg):
         pass
