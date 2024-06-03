@@ -194,10 +194,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             casted_value = str(attribute_value)
 
-        print(instance)
-        print(attribute_name)
-        print(casted_value)
-
         setattr(instance, attribute_name, casted_value)
 
         instance.save()
