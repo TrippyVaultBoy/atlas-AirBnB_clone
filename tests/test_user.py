@@ -10,7 +10,7 @@ class TestUser(unittest.TestCase):
     """
 
     def test_email(self):
-        u = user()
+        u = User()
         self.assertEqual(self.user.email, "")
         self.user.email = "test@example.com"
         self.assertEqual(self.user.email, "test@example.com")
