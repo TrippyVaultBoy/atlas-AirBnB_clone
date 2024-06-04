@@ -13,6 +13,10 @@ import os
 
 
 class TestFileStorage(unittest.TestCase):
+    def test_file_path(self):
+        self.storage = FileStorage()
+        self.assertEqual(self.storage._FileStorage__file_path, "file.json")
+
     def test_all(self):
         self.storage = FileStorage()
         test_dict = self.storage.all()
