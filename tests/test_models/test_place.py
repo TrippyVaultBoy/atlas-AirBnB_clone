@@ -66,5 +66,5 @@ class TestPlace(unittest.TestCase):
     def test_amenity_ids(self):
         self.place = Place()
         self.assertEqual(self.place.amenity_ids, [])
-        self.place.amenity_ids = [bar, pool, hottub]
-        self.assertEqual(self.place.amenity_ids, [bar, pool, hottub])
+        self.place.amenity_ids = ["bar", "pool", "hottub"]
+        self.assertEqual(self.place.amenity_ids, ["bar", "pool", "hottub"])
