@@ -25,11 +25,11 @@ class TestPlace(unittest.TestCase):
         self.place = Place()
         self.assertEqual(self.place.description, "")
         self.place.description = "A nice place."
-        self.assertEqual(self.description, "A nice place.")
+        self.assertEqual(self.place.description, "A nice place.")
 
     def test_number_rooms(self):
         self.place = Place()
-        self.assertEqual(self.number_rooms, 0)
+        self.assertEqual(self.place.number_rooms, 0)
         self.place.number_rooms = 3
         self.assertEqual(self.place.number_rooms, 3)
 
