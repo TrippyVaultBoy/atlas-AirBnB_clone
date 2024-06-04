@@ -29,3 +29,15 @@ class TestBaseModel(unittest.TestCase):
         self.base_model = BaseModel()
         correct_output = "[BaseModel] ({}) {}".format(self.base_model.id, self.base_model.__dict__)
         self.assertEqual(str(self.base_model), correct_output)
+
+    @mock.patch('models.storage')
+    def test_save(test):
+        self.base_model = BaseModel()
+        old_updated_at = self.base_model.updated_at
+        self.base_model.save()
+        self.assertNotEqual(self.base_model.updated_at, old_updated_at)
+        self.assertTrue(mock_storage.new.called)
+        self.assertTrue(mock_storage.save.called)
+
+    def test_to_dict(self):
+        pass
