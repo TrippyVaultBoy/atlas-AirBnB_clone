@@ -7,7 +7,7 @@ from models.review import Review
 from models.amenity import Amenity
 from models.engine.file_storage import FileStorage
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, mock_open
 import json
 import os
 
@@ -43,7 +43,7 @@ class TestFileStorage(unittest.TestCase):
 
     @patch('builtins.open', new_callable=mock_open, read_data='{}')
     @patch('os.path.exists', return_value=True)
-    def test_reload(self):
+    def test_reload(self, mock_exists, mock_file):
         self.storage = FileStorage()
         self.obj = BaseModel()
         self.storage.new(self.obj)
