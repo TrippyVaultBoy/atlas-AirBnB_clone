@@ -31,8 +31,8 @@ class TestBaseModel(unittest.TestCase):
         correct_output = "[BaseModel] ({}) {}".format(self.base_model.id, self.base_model.__dict__)
         self.assertEqual(str(self.base_model), correct_output)
 
-    @mock.patch('models.storage')
-    def test_save(test):
+    @patch('models.storage')
+    def test_save(self, mock_storage):
         self.base_model = BaseModel()
         old_updated_at = self.base_model.updated_at
         self.base_model.save()
