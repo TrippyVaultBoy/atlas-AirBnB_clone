@@ -11,6 +11,8 @@
         <br>
         :clipboard: <a href="#requirements">Requirements</a>
         <br>
+        :ocean: <a href="#flowcharts">Flowcharts</a>
+        <br>
         :floppy_disk: <a href="#compilation/installation">Compilation/Installation</a>
         <br>
         :computer: <a href="#testing">Testing</a>
@@ -54,6 +56,10 @@ To support this, the project requires the implementation of the following key co
 - All your classes should have a documentation **(python3 -c 'print(__import__("my_module").MyClass.__doc__)')**
 - All your functions (inside and outside a class) should have a documentation **(python3 -c 'print(__import__("my_module").my_function.__doc__)'** and **python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')**
 - A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
+
+## :ocean: <span id="flowcharts">Flowcharts</a>
+
+![Image](/AirBnBcloneconsoleflow.png)
 
 ## :floppy_disk: <span id="compilation/installation">Compilation/Installation</a>
 
