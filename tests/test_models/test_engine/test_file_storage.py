@@ -31,8 +31,23 @@ class TestFileStorage(unittest.TestCase):
         self.assertIn(key, self.storage._FileStorage__objects)
         self.assertEqual(self.storage._FileStorage__objects[key], self.obj)
 
-    def test_save(self):
-        pass
+    @patch('builtins.open', new_callable=mock_open)
+    @patch('json.dump')
+    def test_save(self, mock_json_dump, mock_file):
+        self.storage = FileStorage()
+        self.obj = BaseModel()
+        self.storage.new(self.obj)
+        self.storage.save()
+        mock_file.assert_called_once_with(self.storage._FileStorage__file_path, 'w', encoding='utf-8')
+        mock_json_dump.assert_called_once()
 
+    @patch('builtins.open', new_callable=mock_open, read_data='{}')
+    @patch('os.path.exists', return_value=True)
     def test_reload(self):
-        pass
+        self.storage = FileStorage()
+        self.obj = BaseModel()
+        self.storage.new(self.obj)
+        self.storage.save()
+        self.storage._FileStorage__objects = {}
+        self.storage.reload()
+        self.assertIn(f"BaseModel.{self.obj.id}", self.storage._FileStorage__objects)
