@@ -8,7 +8,7 @@ class TestBaseModel(unittest.TestCase):
         self.base_model = BaseModel()
         self.assertIsInstance(self.base_model.id, str)
         self.assertIsInstance(self.base_model.created_at, datetime)
-        self.assertIsInstance(self.base_class.updated_at, datetime)
+        self.assertIsInstance(self.base_model.updated_at, datetime)
         self.assertEqual(self.base_model.created_at, self.base_model.updated_at)
 
     def test_init_kwargs(self):
