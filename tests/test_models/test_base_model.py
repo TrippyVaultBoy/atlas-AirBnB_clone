@@ -2,6 +2,7 @@ import unittest
 from models.base_model import BaseModel
 import uuid
 from datetime import datetime
+from unittest.mock import patch
 
 class TestBaseModel(unittest.TestCase):
     def test_init(self):
