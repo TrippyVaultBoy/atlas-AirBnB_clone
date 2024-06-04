@@ -26,4 +26,5 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.base_model.name, "Test")
 
     def test_str(self):
-        pass
+        correct_output = "[BaseModel] ({}) {}".format(self.base_model.id, self.base_model.__dict__)
+        self.assertEqual(str(self.base_model), correct_output)
