@@ -26,10 +26,10 @@ class TestFileStorage(unittest.TestCase):
     def test_new(self):
         self.storage = FileStorage()
         self.obj = BaseModel()
-        self.storage.new(obj)
-        key = f"BaseModel.{obj.id}"
+        self.storage.new(self.obj)
+        key = f"BaseModel.{self.obj.id}"
         self.assertIn(key, self.storage._FileStorage__objects)
-        self.assertEqual(self.storage._FileStorage__objects[key], obj)
+        self.assertEqual(self.storage._FileStorage__objects[key], self.obj)
 
     def test_save(self):
         pass
