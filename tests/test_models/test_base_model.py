@@ -43,10 +43,10 @@ class TestBaseModel(unittest.TestCase):
     def test_to_dict(self):
         self.base_model = BaseModel()
         test_dict = self.base_model.to_dict()
-        self.assertEqual(test_dict['__class__', 'BaseModel'])
-        self.assertEqual(test_dict['id', self.base_model.id])
-        self.assertEqual(test_dict['created_at', self.base_model.created_at.isoformat()])
-        self.assertEqual(test_dict['updated_at', self.base_model.updated_at.isoformat()])
+        self.assertEqual(test_dict['__class__'], 'BaseModel')
+        self.assertEqual(test_dict['id'], self.base_model.id)
+        self.assertEqual(test_dict['created_at'], self.base_model.created_at.isoformat())
+        self.assertEqual(test_dict['updated_at'], self.base_model.updated_at.isoformat())
         for key in self.base_model.__dict__:
             if key not in ["created_at", "updated_at"]:
                 self.assertEqual(test_dict[key], self.base_model.__dict__[key])
