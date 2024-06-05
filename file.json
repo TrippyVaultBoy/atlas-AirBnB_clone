@@ -15,5 +15,12 @@
         "last_name": "Saint",
         "password": "754378729",
         "__class__": "User"
+    },
+    "User.4938a6d6-db3f-4991-b1cf-4b75c116f0c8": {
+        "id": "4938a6d6-db3f-4991-b1cf-4b75c116f0c8",
+        "created_at": "2024-06-04T23:55:53.881801",
+        "updated_at": "2024-06-04T23:56:18.507945",
+        "first_name": "Jaylen",
+        "__class__": "User"
     }
 }
