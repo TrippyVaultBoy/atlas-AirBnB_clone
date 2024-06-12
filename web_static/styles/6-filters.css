@@ -30,6 +30,7 @@
 
 
 .popover {
+    display: none;
     position: relative;
     left: -55px;
     background-color: #FAFAFA;
