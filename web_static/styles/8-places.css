@@ -1,0 +1,56 @@
+.places {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.places > h1 {
+    text-align: left;
+    font-size: 30px;
+    flex: 1 1 100%;
+    
+}
+.places > article {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+}
+.places > article > h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+
+.price_by_night {
+
+}
+.price_by_night p {
+
+}
+.information {
+
+}
+.max_guest, .number_rooms, .number_bathrooms {
+
+}
+.max_guest > p, .number_rooms > p, .number_bathrooms > p {
+
+}
+.guest_image {
+
+}
+.bed_image {
+
+}
+.bath_image {
+
+}
+.user > p {
+
+}
+.decription > p {
+    
+}
