@@ -31,7 +31,21 @@
 }
 
 .popover {
+    position: relative;
+    background-color: #FAFAFA;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    right: 50px;
+    padding-bottom: 25px;
+}
 
+.locations:hover .popover {
+    display: block;
+}
+
+.amenities:hover .popover {
+    display: block;
 }
 
 section.filters button {
