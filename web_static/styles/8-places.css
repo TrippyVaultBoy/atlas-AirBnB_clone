@@ -8,7 +8,7 @@
 .places > h1 {
     text-align: left;
     font-size: 30px;
-    flex: 0 1 100%;
+    flex: 1 0 100%;
     
 }
 .places > article {
