@@ -4,5 +4,8 @@ footer {
     width: 100%;
     bottom: 0;
     border-top: 1px solid #CCCCCC;
+    display: flex;
     position: absolute;
+    justify-content: center;
+    align-items: center;
 }
