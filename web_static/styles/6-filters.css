@@ -45,11 +45,21 @@
 .locations:hover > .popover {
     display: block;
 }
-
-
 .amenities:hover > .popover {
     display: block;
 }
+.locations > .popover > li {
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.locations > .popover > li > ul {
+    padding-left: 20px;
+}
+.amenities > .popover > li {
+    margin-left: 50px;
+    margin-bottom: 8px;
+}
+
 
 section.filters button {
     font-size: 18px;
